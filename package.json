@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/bluesmoss/am-messenger/issues"
   },
-  "homepage": "https://github.com/bluesmoss/am-messenger#readme"
+  "homepage": "https://github.com/bluesmoss/am-messenger#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }

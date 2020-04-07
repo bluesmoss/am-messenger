@@ -4,7 +4,7 @@ const response = require('../../network/response');
 const controller = require('./controller');
 
 
-router.post('/', function (req, res){
+router.post('/', (req, res) => {
     controller.addChat(req.body.users)
     .then( data => {
         response.success(req, res, data, 200); 
@@ -15,7 +15,7 @@ router.post('/', function (req, res){
 });
 
 
-router.get('/:userId', function (req, res){
+router.get('/:userId', (req, res) => {
     controller.listChats(req.params.userId)
     .then( data => {
         response.success(req, res, data, 200); 

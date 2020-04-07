@@ -4,7 +4,7 @@ const response = require('../../network/response');
 const controller = require('./controller');
 
 
-router.get('/', function (req, res){
+router.get('/', (req, res) => {
     const filterUser = req.query.name || null;
     controller.getUsers(filterUser)
     .then( userList => {
@@ -16,7 +16,7 @@ router.get('/', function (req, res){
 });
 
 
-router.post('/', function (req, res){
+router.post('/', (req, res) => {
     controller.addUser(req.body.name, req.body.email)
     .then( data => {
         response.success(req, res, data, 201); 

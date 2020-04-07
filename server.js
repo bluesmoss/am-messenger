@@ -4,11 +4,10 @@ const app = express();
 const config = require('./config');
 const router = require('./network/routes') //Routes
 
-router(app);
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 
-app.use('/', function(req, res){
-    res.send('Hi :)');
-});
+router(app);
 
 app.listen(config.APP_PORT);
 console.log(`Aplication running on ${config.APP_HOST}:${config.APP_PORT}`);

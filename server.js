@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const server = require('http').Server(app);
 
 const config = require('./config');
 const bodyParser = require('body-parser');
@@ -9,9 +10,13 @@ const router = require('./network/routes') //Routes
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
-db(config.DB_URL); // DB Connection
+// DB Connection
+db(config.DB_URL); 
 
 router(app);
 
-app.listen(config.APP_PORT);
-console.log(`Aplication running on ${config.APP_HOST}:${config.APP_PORT}`);
+//Public 
+app.use(config.PUBLIC_ROUTE, express.static('public'));
+server.listen(config.APP_PORT, () => {
+    console.log(`Aplication running on ${config.APP_HOST}:${config.APP_PORT}`);
+}); 

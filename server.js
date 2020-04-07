@@ -1,10 +1,11 @@
 const express = require('express');
+const app = express();
+const config = require('./config');
 
-var app = express();
 
 app.use('/', function(req, res){
     res.send('Hi :)');
 });
 
-app.listen(8000);
-console.log('App running on http://localhost:8000');
+app.listen(config.APP_PORT);
+console.log(`Aplication running on ${config.APP_HOST}:${config.APP_PORT}`);

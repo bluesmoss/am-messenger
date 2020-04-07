@@ -1,7 +1,10 @@
 const express = require('express');
 const app = express();
-const config = require('./config');
 
+const config = require('./config');
+const router = require('./network/routes') //Routes
+
+router(app);
 
 app.use('/', function(req, res){
     res.send('Hi :)');

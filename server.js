@@ -5,13 +5,17 @@ const server = require('http').Server(app);
 const config = require('./config');
 const bodyParser = require('body-parser');
 const db = require('./db');
-const router = require('./network/routes') //Routes
+const router = require('./network/routes'); //Routes
+const socket = require('./socket');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 // DB Connection
 db(config.DB_URL); 
+
+//Socket connection
+socket.connect(server);
 
 router(app);
 

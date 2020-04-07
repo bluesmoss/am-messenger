@@ -3,10 +3,13 @@ const app = express();
 
 const config = require('./config');
 const bodyParser = require('body-parser');
+const db = require('./db');
 const router = require('./network/routes') //Routes
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
+
+db(config.DB_URL); // DB Connection
 
 router(app);
 

@@ -1,0 +1,21 @@
+:root{
+    --top-color: #21c08B;
+    --bottom-color: #3283d3;
+    --light-color: #FFFFFF;
+}
+
+body {
+    margin: 0px;
+    background: linear-gradient( var(--top-color), var(--bottom-color));
+    height: 100vh;
+    font-family: 'Baloo Thambi 2', cursive;
+}
+
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: var(--light-color);
+    font-size: 2.5rem;
+}

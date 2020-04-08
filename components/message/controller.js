@@ -33,9 +33,7 @@ const addMessage = (user, message, chat, file) => {
 }
 
 const getMessages = (filterMessages) => {
-    return new Promise ((resolve,reject) => {
-        resolve(store.list(filterMessages));
-    });
+    return store.list(filterMessages);
 } 
 
 const updateMessage = (id, message) => {
